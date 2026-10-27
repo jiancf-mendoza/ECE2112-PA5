@@ -95,7 +95,7 @@ ans =
    2.0000 + 3.0000i  -1.0000 + 4.0000i   5.0000 - 2.0000i
   -3.0000 + 1.0000i   6.0000 + 0.0000i   2.0000 + 5.0000i
 ```
-# Answer the following in MATLAB comments below your output:
+- ## Answer the following in MATLAB comments below your output:
 a. Which operations give identical results for the real matrix R?
 - All three operations give identical results for the real matrix R
 b. Which two operations give identical results for the complex matrix Z?
@@ -109,8 +109,70 @@ c. What additional operation is performed by the apostrophe operator ’ when th
 2. Cramer’s Rule: replace one column of A at a time with b, use determinants, and store the result
 in x cramer. A loop is optional.
 - Do not use MATLAB’s left-division operator as either of the two required methods.
-## Required checks: Display both solution vectors and det(A). Also display norm(x inv-x cramer)
-and norm(A*x inv-b). The determinant must be nonzero. Both norm checks should be approximately
-zero to numerical precision.
+## Required checks: 
+Display both solution vectors and det(A). Also display norm(x inv-x cramer) and norm(A*x inv-b). The determinant must be nonzero. Both norm checks should be approximately zero to numerical precision.
+``` matlab
+>> A = [2 -1 3 2; 1 4 -2 1; 3 2 1 -1; -2 3 4 2]
 
+A =
 
+     2    -1     3     2
+     1     4    -2     1
+     3     2     1    -1
+    -2     3     4     2
+
+>> B = [16; -7; 6; 7]
+
+B =
+
+    16
+    -7
+     6
+     7
+
+>> % 1. Inverse Method
+>> x_inv = inv(A) * B;
+>> % 2. Cramer's Rule
+>> n = length(B); 
+x_cramer = zeros(n,1);
+det_A = det(A);
+>> for i = 1:n
+A_temp = A;
+A_temp(:,i) = B;
+x_cramer(i) = det(A_temp)/det_A;
+end
+>> det_A = det(A)
+
+det_A =
+
+   280
+
+>> x_inv
+
+x_inv =
+
+    2.0000
+   -1.0000
+    3.0000
+    1.0000
+
+>> x_cramer
+
+x_cramer =
+
+    2.0000
+   -1.0000
+    3.0000
+    1.0000
+
+>> norm_diff = norm(x_inv - x_cramer)
+
+norm_diff =
+
+   1.1102e-16
+>> norm_residual = norm(A * x_inv - B)
+
+norm_residual =
+
+   2.6645e-15
+```
