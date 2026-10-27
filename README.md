@@ -17,13 +17,17 @@ R =
 [5 & -2 & 0 & 7 \\ 
 1 & 3 & -4 & 2 \\ 
 6 & 0 & 8 & -1]
-
+\end{matrix}
+$$
+$$
+\begin{matrix}
 Z =
 [2+3i & -1+4i & 5-2i \\
 -3+i & 6 & 2+5i]
 \end{matrix}
 $$
 
+- For each matrix, compute and display all three expressions:
 transpose(A)
 A’
 A.’
