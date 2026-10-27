@@ -132,6 +132,7 @@ B =
 
 >> % 1. Inverse Method
 >> x_inv = inv(A) * B;
+
 >> % 2. Cramer's Rule
 >> n = length(B); 
 x_cramer = zeros(n,1);
