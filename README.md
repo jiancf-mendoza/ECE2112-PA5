@@ -10,9 +10,11 @@ At the end of this laboratory activity, the student should be able to:
 Write a MATLAB script containing clearly labeled sections for both problems. Display the requested matrices and numerical checks. Use MATLAB matrix operations and built-in functions; do not type a computed answer directly into the output.
 # A. TRANSPOSE OPERATIONS
 Define the following matrices exactly as shown:
-``
-R = [5 -2 0 7; 1 3 -4 2; 6 0 8 -1]
-``
+$$
+\begin{matrix}
+R = [5 -2 0 7 \\ 1 3 -4 2 \\ 6 0 8 -1]
+\end{matrix}
+$$
 transpose(A)
 A’
 A.’
